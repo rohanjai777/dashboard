@@ -1,0 +1,484 @@
+/*Start Global Style*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url(/images/bg.png);
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  z-index: -1;
+}
+
+input {
+  height: 2.4rem;
+  width: 100%;
+  margin: 2% 0;
+  padding: 1%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid #9a9a9a;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 4px solid #0099ff;
+}
+
+input::placeholder {
+  color: #777777;
+}
+
+label {
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+  float: left;
+  margin-bottom: -10px;
+  margin-left: 1%;
+  margin-top: 2%;
+  font-weight: 500;
+  color: #777777;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  height: 100%;
+}
+
+.logo {
+  width: 350px;
+
+}
+
+.login,
+.register {
+  width: 50%
+}
+
+/*Start Login Style*/
+.login {
+  float: right;
+  background-color: #fff;
+  height: 100%;
+  border-radius: 0 10px 10px 0;
+  text-align: center;
+  padding: 50px 0;
+  overflow: scroll;
+}
+
+.login h1 {
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}
+
+.logo-login {
+  width: 350px;
+  display: none;
+}
+
+.register-login {
+  display: none;
+}
+
+.login-heading {
+  display: none;
+}
+
+/*
+input[type="email"] , input[type="password"]{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: none;
+  background-color: #eeeeef;
+}
+*/
+.login span {
+  /*    float: left*/
+}
+
+.login a {
+  float: right;
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s all ease-in-out;
+}
+
+.login a:hover {
+  color: #0099ff;
+  font-weight: bold
+}
+
+.button-login {
+  width: 100%;
+  margin: 30px 0;
+  padding: 10px;
+  border: none;
+  background-color: #0099ff;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.button-login:hover {
+  width: 97%;
+  font-size: 22px;
+  border-radius: 5px;
+
+}
+
+.button-login:focus {
+  outline: none;
+}
+
+.login hr {
+  width: 30%;
+  display: inline-block
+}
+
+.login p {
+  display: inline-block;
+  margin: 0px 10px 30px;
+}
+
+.login ul {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.login ul li {
+  display: inline-block;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.login ul li:hover {
+  opacity: 0.6
+}
+
+.login ul li:last-child {
+  margin-right: 0
+}
+
+.login .copyright {
+  display: inline-block;
+  float: none;
+}
+
+.fa-arrow-circle-right:before {
+  display: none;
+}
+
+/*Start Register Style*/
+.register {
+  float: left;
+  background: #0099ff;
+  height: 100%;
+  color: #fff;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.register h2 {
+  margin: 60px 0 30px;
+  font-size: 39px;
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+.register button {
+  background-color: transparent;
+  border: 1px solid #FFF;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  transition: 0.2s all ease-in-out;
+}
+
+.register button:hover {
+  color: #0099ff;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.head-ing {
+  font-weight: 700;
+  font-size: 45px;
+  color: #0099ff;
+}
+
+.register-toggle {
+  display: none;
+  padding: 0;
+}
+
+.to-register:focus {
+  outline: none;
+}
+
+.to-login:focus {
+  outline: none;
+}
+
+.forgot-password {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(111, 111, 111, 0.84);
+  display: none;
+}
+
+.forgot-password i {
+  position: absolute;
+  left: 12%;
+  top: 10%;
+  font-size: 2rem;
+  color: #0099ff;
+  cursor: pointer;
+}
+
+.to-display {
+  padding: 5%;
+  width: 40%;
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 2;
+  border-radius: 20px;
+}
+
+.to-display h4 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 15% 2%;
+}
+
+.to-display button {
+  width: 50%;
+  margin-left: 25%;
+  text-align: center;
+  transition: 0.3s all ease-in-out;
+}
+
+.to-display button:focus {
+  outline: none;
+}
+
+.to-display button:hover {
+  width: 50%;
+  font-size: 22px;
+  border-radius: 5px;
+}
+
+.validate {
+  display: none;
+}
+
+.newpass {
+  display: none;
+}
+
+.google {
+  color: #0099ff;
+  background-color: #fff;
+  border: 1px solid #0099ff;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .register {
+    display: none;
+  }
+
+  .login {
+    width: 100%;
+    overflow: scroll;
+    padding: 20px 0;
+  }
+
+  .register-login {
+    display: block;
+  }
+
+  hr {
+    border-top: 4px dotted #0099ff;
+  }
+
+  .register-login h2 {
+    font-size: 25px;
+  }
+
+  .logo-login {
+    width: 70%;
+    margin: auto;
+    display: block;
+  }
+
+  .head-ing {
+    font-size: 35px;
+  }
+
+  .to-display {
+    width: 60%;
+    height: 50%;
+  }
+
+  .to-display h4 {
+    font-size: 1.5rem;
+  }
+
+  .forgot-password i {
+    position: absolute;
+    left: 8%;
+    top: 5%;
+    font-size: 2rem;
+  }
+
+  .to-display button {
+    width: 65%;
+    font-size: 1rem;
+    margin-left: 15%;
+    text-align: center;
+    transition: 0.3s all ease-in-out;
+  }
+
+  .to-display button:focus {
+    outline: none;
+  }
+
+  .to-display button:hover {
+    width: 65%;
+    border-radius: 5px;
+  }
+}
+
+.alpha {
+  float: left;
+}
+
+@media screen and (width: 1024px) {
+  body {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .register {
+    display: none;
+  }
+
+  .login {
+    width: 100%;
+    overflow: scroll;
+    padding: 20px 0;
+  }
+
+  .register-login {
+    display: block;
+  }
+
+  hr {
+    border-top: 4px dotted #0099ff;
+  }
+
+  .register-login h2 {
+    font-size: 25px;
+  }
+
+  .logo-login {
+    width: 70%;
+    margin: auto;
+    display: block;
+  }
+
+  .head-ing {
+    font-size: 35px;
+  }
+
+  .to-display {
+    width: 60%;
+    height: 50%;
+  }
+
+  .to-display h4 {
+    font-size: 1.5rem;
+  }
+
+  .forgot-password i {
+    position: absolute;
+    left: 8%;
+    top: 5%;
+    font-size: 2rem;
+  }
+
+  .to-display button {
+    width: 65%;
+    font-size: 1rem;
+    margin-left: 15%;
+    text-align: center;
+    transition: 0.3s all ease-in-out;
+  }
+
+  .to-display button:focus {
+    outline: none;
+  }
+
+  .to-display button:hover {
+    width: 65%;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .logo {
+    width: 100%;
+    margin: auto;
+  }
+
+  .register h2 {
+    font-size: 30px;
+  }
+
+  .to-display button {
+    width: 70%;
+    font-size: 1.2rem;
+    margin-left: 15%;
+    text-align: center;
+    transition: 0.3s all ease-in-out;
+  }
+
+  .to-display button:focus {
+    outline: none;
+  }
+
+  .to-display button:hover {
+    width: 70%;
+    font-size: 1.3rem;
+    border-radius: 5px;
+  }
+}

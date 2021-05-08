@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>EDIT PROFILE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/edit.css">
+  <script type="text/javascript">
+    $(function () {
+      // Sidebar toggle behavior
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Vertical navbar -->
+  <div class="vertical-nav navbar-with-menu fixed-top navbar-semi-light bg-white" id="sidebar">
+    <div class="py-4 px-3 mb-4 bg-light">
+      <div class="media d-flex align-items-center"><img src="/images/wecbr.logo.png" alt="..." width="65"
+          class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        <div class="media-body">
+          <a href="/profile">
+            <h4 class="m-0" style="font: 1.3rem;">WECBR</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+    <ul class="nav flex-column bg-white mb-0">
+      <%- include('sidebar.ejs'); %>
+  </div>
+  <!-- End vertical navbar -->
+
+  <!-- Page content holder -->
+  <div class="page-content p-5" id="content">
+    <!-- Toggle button -->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+        class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">MENU</small></button>
+    <button style="float:right;" id="sidebarCollapse" type="button"
+      class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bell mr-2"></i></button>
+    <!-- Demo content -->
+    <div class="separator"></div>
+    <div class="container emp-profile">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="profile-head">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                  aria-selected="true">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                  aria-controls="profile" aria-selected="false">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab"
+                  aria-controls="password" aria-selected="false">Password</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-7">
+                  <form action="/profile?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <h5>EDIT PROFILE</h5>
+                    <label>First Name</label>
+                    <input type="text" name="fName" value=<%= user.fName %>>
+                    <label>Last Name</label>
+                    <input type="text" name="lName" value=<%= user.lName %>>
+                    <label>Whatsapp Number</label>
+                    <input type="text" name="wNumber" value=<%= user.wNumber %> pattern="[1-9]{1}[0-9]{9}">
+                    <label>College Name</label>
+                    <input type="text" name="collegeName" value=<%= user.collegeName %>>
+                    <br>
+                    <button class="button-login btn btn-primary">Update <i class="fa fa-arrow-right"></i></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="profile-img">
+                    <img src="/uploads/<%= user.pImage %> " alt="" /></div><br><br>
+                  <form action="/changeProfile?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="userPhoto" id="profile" required placeholder="Profile Photo">
+                    <button class="file btn btn-primary">Change Picture</button>
+                  </form>
+                </div>
+                <div class="col-md-6">
+                  <div class="profile-img">
+                    <img src="/uploads/<%= user.cImage %> " alt="" /></div><br><br>
+                  <form action="/changeLogo?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="userPhoto" required id="coll-logo" placeholder="College Logo">
+                    <button class="file btn btn-primary">Change Logo</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+              <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-7">
+                  <form action="/changePassword?_method=PUT" method="POST">
+                    <h5>Change Password</h5>
+                    <input type="password" name="old" required placeholder="Old Password">
+                    <input type="password" name="password" required placeholder="New Password">
+                    <input type="password" name="confirm" required placeholder="Confirm Password"><br>
+                    <button class="file btn btn-primary">Change Password</button>
+                  </form>
+                  <% if (error.length > 0) { %>
+                  <div class="alert alert-danger" role="alert"><%= error %></div>
+                  <% } %>
+
+                  <% if (success.length > 0) { %>
+                  <div class="alert alert-success" role="alert"><%= success %></div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>
+
+</html>

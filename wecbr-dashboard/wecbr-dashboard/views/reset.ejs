@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/register.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+    integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+</head>
+
+<body style="background: #fff; ">
+  <div class="container">
+    <div class="row" style="text-align: center; padding: 2%">
+      <div class="col-lg-12">
+        <img src="/images/logo.png" alt="Logo" style="width: 300px">
+      </div>
+      <div class="col-lg-12">
+        <form action="/reset/<%= token %>" method="post" style="width: 50%; margin: 0 auto">
+          <input type="password" name="password" placeholder="New Password">
+          <input type="password" name="confirm" placeholder="Confirm Password"><br>
+          <button class="button-login done">Update Password! <i class="fas fa-arrow-circle-right"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

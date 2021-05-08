@@ -1,0 +1,61 @@
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Nunito';
+}
+
+.home-page {
+  margin: 20px;
+}
+
+.searchbtn {
+  background-color: #0099FF;
+  border-left-width: 0px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.search {
+  border-right: 0px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+input {
+  border-left: 0px;
+}
+
+img {
+  height: 200px;
+  width: 300px;
+  margin-top: 50px;
+}
+
+@media(max-width:450px) {
+  .searchbtn {
+    margin-top: 5px;
+    border: 2px solid black;
+    border-radius: 20px;
+  }
+
+  input {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+@media(max-width:350px) {
+  input {
+    max-width: 220px;
+  }
+}
+
+@media(max-width:280px) {
+  input {
+    max-width: 200px;
+  }
+
+  img {
+    width: 250px;
+  }
+}

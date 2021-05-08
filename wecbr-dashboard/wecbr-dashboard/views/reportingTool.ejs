@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Reporting Tools</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+
+  <link href="http://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.0.1/ckeditor.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/reportingTool.css">
+
+  <script type="text/javascript">
+    $(function () {
+      // Sidebar toggle behavior
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar, #content').toggleClass('active');
+        if ($('#sidebar').hasClass('active'))
+          $('#reporting').addClass('hideCardContent');
+        else
+          $('#reporting').removeClass('hideCardContent');
+      });
+      $('body').on('change', function () {
+        if ($('#sidebar').hasClass('active'))
+          $('#reporting').addClass('hideCardContent');
+        else
+          $('#reporting').removeClass('hideCardContent');
+      });
+      //Reporting Tool Checkbox : Toggles Submit Button
+      $('#toggleSubmitPost').on('click', function () {
+        if ($('#toggleSubmitPost').is(':checked')) {
+          $('button#sub_bun').removeClass('dull');
+        } else {
+          $('button#sub_bun').addClass('dull');
+        }
+      });
+      //Reporting Tool  : Alert For Unchecked Submission   
+      $('button#sub_bun').on('click', function () {
+        if ($('button#sub_bun').hasClass('dull')) {
+          alert("Please Select the Checkbox");
+        }
+      });
+    });
+    (function ($) {
+      $(document).ready(function () {
+        var now = new Date();
+        var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+          'October', 'November', 'December'
+        ];
+        var month = months[now.getMonth()];
+        var currentDate = month + ' ' + now.getFullYear();
+        $('#monthandyear').val(currentDate);
+      });
+    })(jQuery);
+  </script>
+</head>
+
+<body>
+  <!-- Vertical navbar -->
+  <div class="vertical-nav navbar-with-menu fixed-top navbar-semi-light bg-white" id="sidebar">
+    <div class="py-4 px-3 mb-4 bg-light">
+      <div class="media d-flex align-items-center"><img src="/images/wecbr.logo.png" alt="..." width="65"
+          class="mr-3 rounded-circle img-thumbnail shadow-sm">
+        <div class="media-body">
+          <h4 class="m-0" style="font: 1.3rem;">WECBR</h4>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Main</p>
+
+    <%- include('sidebar.ejs',{user:user}); %>
+  </div>
+  <!-- End vertical navbar -->
+
+  <!-- Page content holder -->
+  <div class="page-content p-5" id="content">
+    <!-- Toggle button -->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i
+        class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">MENU</small></button>
+    <button style="float:right;" id="sidebarCollapse" type="button"
+      class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bell mr-2"></i></button>
+    <!-- Demo content -->
+    <div class="separator"></div>
+
+    <!--Reporting tools  -->
+    <div id="reporting">
+
+      <div class="container emp-profile" id="reportingform">
+        <form method="post">
+          <div class="reportingPanel">
+            <a href="#" class="btn btn-primary btn-xs pull-left mr-2" id="heading">Reporting Tool</a>
+            <input type="button" class="btn btn-primary btn-xs pull-right ml-2 mb-2" value="Previous Reports">
+            <input type="text" class="btn btn-primary btn-xs pull-right ml-2 mb-2"
+              value="<%= moment(user.endDate).format('Do MMM, YYYY')  %> " disabled placeholder="Month And Year">
+            <input type="text" class="btn btn-primary btn-xs pull-right ml-2 mb-2" disabled
+              value="<%= moment(user.startDate).format('Do MMM, YYYY')  %> " placeholder="Month And Year">
+          </div>
+
+
+
+          <div class="separator"></div>
+
+
+          <label id="headtext">Write Here :</label>
+          <div id="myeditor">
+            <textarea id="editortextarea" placeholder="Start from here....."></textarea>
+          </div><br>
+
+          <div id="checkboxdiv">
+            <input type="checkbox" id="toggleSubmitPost"> The input provided above is best of my knowledge.
+          </div><br>
+
+
+          <div id="sub_bun">
+            <button type="submit" class="btn btn-primary btn-xs dull" id="sub_bun">SUBMIT</button>
+          </div>
+
+          <div id="instruction">
+            <br><br> <br>
+            <label id="headtext">Instructions :</label><br> 1. WeCBR is a Student Help Club. CBR basically means
+            Community Based Rehabilitation at student level.<br> 2. As we know that this is the era of Information, it
+            means information is
+            available free of cost. <br> 3. We are a diverse team with distinct backgrounds, sharing one commonality: a
+            passion for setting and achieving goals by collaborating with students who are working to make the world a
+            better place.<br> 4. WeCBR aims to help students, who have faced lack of awareness in the initial days of
+            colleges by providing them information about various events, internship offers and resources that makes them
+            independent and aware.<br>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<ul class="nav flex-column bg-white mb-0">
+  <li class="nav-item">
+    <a href="/" class="nav-link text-dark font-italic bg-light active">
+      <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+      Dashboard
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="/reportingTool" class="nav-link text-dark font-italic">
+      <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+      Reporting Tool
+    </a>
+  </li>
+  <% if(currentUser.isManager || currentUser.tempManager) { %>
+  <!-- <li class="nav-item">
+    <a href="#" class="nav-link text-dark font-italic">
+      <i class="fa fa-plus mr-3 text-primary fa-fw"></i>
+      Add Student Partner
+    </a>
+  </li> -->
+  <li class="nav-item">
+    <a href="/studentDetails" class="nav-link text-dark font-italic">
+      <i class="fa fa-child mr-3 text-primary fa-fw"></i>
+      Student Partner Details
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="/performance" class="nav-link text-dark font-italic">
+      <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+      Student Performance
+    </a>
+  </li>
+  <li class="nav-item">
+    <a href="/assign" class="nav-link text-dark font-italic">
+      <i class="fa fa-group mr-3 text-primary fa-fw"></i>
+      Assign Groups
+    </a>
+  </li>
+  <% } %>
+  <li class="nav-item">
+    <a href="/logout" class="nav-link text-dark font-italic">
+      <i class="fa fa-times mr-3 text-primary fa-fw"></i>
+      Logout
+    </a>
+  </li>
+</ul>

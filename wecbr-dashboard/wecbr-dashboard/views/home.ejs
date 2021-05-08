@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Partner Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/register.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+    integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container shadow">
+    <div class="register">
+      <div class="container">
+        <img src="/images/logo.png" class="logo">
+        <div class="register-heading">
+          <h2 class="heading-toggle">Not Registered?</h2>
+          <button class="toggle-btn button-login">Register Here <i class="fas fa-arrow-circle-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="login">
+      <div class="container login-toggle">
+        <img src="/images/logo.png" class="logo-login">
+        <h2 class="head-ing">LOG IN</h2>
+        <form action="/login" method="post">
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Password"><br>
+          <a href="#" class="forgot">Forgot password?</a>
+          <button class="button-login">Log In</button>
+        </form>
+        <% if (error.length > 0) { %>
+        <div class="alert alert-danger" role="alert"><%= error %></div>
+        <% } %>
+
+        <% if (success.length > 0) { %>
+        <div class="alert alert-success" role="alert"><%= success %></div>
+        <% } %>
+        <p style="margin: 0">OR</p>
+
+        <form action="/auth/google" method="">
+
+          <button class="button-login google">Login with Google</button>
+        </form>
+        <div class="register-login">
+          <hr>
+          <h2 class="heading-toggle">Not Registered?</h2>
+          <button class="toggle-btn button-login">Register Here <i class="fas fa-arrow-circle-right"></i></button>
+        </div>
+      </div>
+
+      <div class="container register-toggle">
+        <img src="/images/logo.png" class="logo-login">
+        <h2 class="head-ing">Register Here</h2>
+        <div id="signupBtn">
+
+          <form action="/auth/google" method="">
+
+            <button class="button-login google">Sign Up with Google</button>
+          </form>
+          <p style="margin: 0">OR</p>
+        </div>
+        <div id="generalRegister">
+          <form action="/register" method="post" enctype="multipart/form-data">
+            <input type="text" required name="fName" placeholder="First Name">
+            <input type="text" name="lName" placeholder="Last Name">
+            <input type="email" required name="email" placeholder="Email">
+            <input type="text" required name="wNumber" placeholder="Whatsapp Number" pattern="[1-9]{1}[0-9]{9}">
+            <label for="userPhoto">Profile Photo</label>
+            <input type="file" required name="userPhoto" id="profile" placeholder="Profile Photo">
+            <input type="text" required name="collegeName" placeholder="College Name">
+            <label for="coll-logo">College Logo</label>
+            <input type="file" required name="userPhoto" id="coll-logo" placeholder="College Logo">
+            <label for="coll-id">College ID</label>
+            <input type="file" required name="userPhoto" id="coll-id" placeholder="College ID">
+            <input type="password" required name="password" placeholder="Password">
+            <input type="password" name="cpassword" required placeholder="Confirm Password"><br>
+            <button class="button-login">Register <i class="fas fa-arrow-circle-right"></i></button>
+          </form>
+        </div>
+        <div id="googleRegister" style="display: none;">
+          <p>Please Fill below Fields:</p>
+          <form action="/auth/register" method="post" enctype="multipart/form-data">
+
+            <input type="text" required name="wNumber" placeholder="Whatsapp Number" pattern="[1-9]{1}[0-9]{9}">
+            <label for="userPhoto">Profile Photo</label>
+            <input type="file" required name="userPhoto" id="profile" placeholder="Profile Photo">
+            <input type="text" required name="collegeName" placeholder="College Name">
+            <label for="coll-logo">College Logo</label>
+            <input type="file" required name="userPhoto" id="coll-logo" placeholder="College Logo">
+            <label for="coll-id">College ID</label>
+            <input type="file" required name="userPhoto" id="coll-id" placeholder="College ID">
+
+            <button class="button-login">Register <i class="fas fa-arrow-circle-right"></i></button>
+
+
+          </form>
+        </div>
+        <div class="register-login">
+          <hr>
+          <h2>Already Registered?</h2>
+          <button class="toggle-btn button-login">Log In Here <i class="fas fa-arrow-circle-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="forgot-password">
+    <div class="to-display">
+      <a href="#" class="close-it"><i class="fas fa-times"></i></a>
+      <h4 class="head-ing"><span>Password Recovery</span></h4>
+      <div class="send">
+        <form action="/forgot" method="POST">
+          <input type="email" name="email" required placeholder="Registered Email">
+          <button class="button-login send-otp">Send Link</button>
+        </form>
+      </div>
+      <div class="validate">
+        <p style="text-align: center; font-size: 1rem">Verification link sent to the email.</p>
+        <button class="button-login validate-otp done">OKAY</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+  <script src="/js/registerScript.js"></script>
+</body>
+
+<script>
+  let a
+  if (`<%=isGoogle%>`) {
+    a = `<%=isGoogle%>`;
+  }
+  console.log(a);
+  if (a === 'true') {
+    $(".toggle-btn").click();
+    $("#googleRegister").css('display', 'block');
+    $("#generalRegister").css('display', 'none');
+    $("#signupBtn").css('display', 'none');
+  }
+</script>
+
+</html>
+
+
+
+<!--
+-->
